@@ -24,15 +24,14 @@ namespace Methods
             score_multiplier = 1.0f;
             int shield;
             shield = 50;
+            int current_xp;
+            current_xp = 0;
 
             void ShowHUD()
             {
                 Console.WriteLine("Studio Name: " + studio_name + " | Score: " + score + " | Game Title: " + game_title + " | Health: " + hp + " | Lives: " + lives +
                     " | Score Multiplier: " + score_multiplier + " | Shield: " + shield);
-                //Console.WriteLine("Player's score is now " + score);
-                //lives -= 1;
-                //Console.WriteLine("Player just died! " + lives + " lives remaining");
-                //Console.ReadKey(true);
+                Console.WriteLine("Xp: " + current_xp);
             }
 
             void TakeDamage(int damage)
@@ -49,9 +48,18 @@ namespace Methods
                 Console.WriteLine("Player's score is now " + Score);
             }
 
+            void AddXp(int xp)
+            {
+                current_xp += xp;
+                Console.WriteLine("Player's xp is now " + current_xp);
+            }
+
             ShowHUD();
             TakeDamage(10);
             AddScore(100, 2.0f);
+            AddXp(10);
+            AddXp(30);
+
             Console.ReadKey(false);
         }
     }
