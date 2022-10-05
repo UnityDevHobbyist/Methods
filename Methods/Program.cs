@@ -8,6 +8,9 @@ namespace Methods
 {
     internal class Program
     {
+        // declarations
+        static int score;
+        static int health;
         static void Main(string[] args)
         {
             string studio_name;
@@ -60,7 +63,61 @@ namespace Methods
             AddXp(10);
             AddXp(30);
 
+            Console.WriteLine("Methods:");
+            Console.WriteLine();
+
+            // initializations
+            score = 0;
+            health = 100;
+
+            ShowHUD2(); // usage
+
+            // earn points
+            score = score + 500;
+            // get hurt
+            health = health - 10;
+
+            ShowHUD2(); // usage
+
+            // earn points
+            score = score + 50;
+            // get hurt
+            health = health - 25;
+
+            ShowHUD2(); // usage
+
+            // earn points
+            score = score + 0;
+            // get hurt
+            health = health - 5;
+
+            ShowHUD2();
+
+            Heal(5);
+
+            ShowHUD2();
+
+            FullRestore();
+
+            ShowHUD2();
+
             Console.ReadKey(false);
+        }
+        static void ShowHUD2() // declaration
+        {
+            // display HUD
+            Console.WriteLine("~~~~~~~~~~");
+            Console.WriteLine("Score: " + score);
+            Console.WriteLine("Health: " + health);
+            Console.WriteLine();
+        }
+        static void FullRestore()
+        {
+            health = 100;
+        }
+        static void Heal(int healamount)
+        {
+            health = health + healamount;
         }
     }
 }
